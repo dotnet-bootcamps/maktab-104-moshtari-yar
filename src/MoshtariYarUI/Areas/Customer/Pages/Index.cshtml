@@ -29,6 +29,7 @@
             <td>@ticket.SubmittedAt</td>
             <td>
                 <a class="btn btn-sm btn-info" asp-page="/TicketDetails" asp-route-Id="@ticket.Id">مشاهده</a>
+                <a class="btn btn-sm btn-warning" asp-page="/Editticket" asp-route-Id="@ticket.Id">ویرایش</a>
             </td>
         </tr>
     }

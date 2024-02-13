@@ -14,4 +14,9 @@ public class RedisDatabase : IDatabase
     {
         throw new NotImplementedException();
     }
+
+    public bool UpdateTicket(Ticket ticket)
+    {
+        throw new NotImplementedException();
+    }
 }
