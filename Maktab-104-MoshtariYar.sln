@@ -23,7 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Contarcts", "01-Contarct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "src\WebAPI\WebAPI.csproj", "{51223196-C227-4420-82BC-546B05477858}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoshtariYarUI", "src\MoshtariYarUI\MoshtariYarUI.csproj", "{034F7EEE-61ED-49EA-89F0-397D8BEE0130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoshtariYarUI", "src\MoshtariYarUI\MoshtariYarUI.csproj", "{034F7EEE-61ED-49EA-89F0-397D8BEE0130}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Archived", "Archived", "{B5103BF4-EC33-432D-B055-FD2ACE63466D}"
 EndProject
