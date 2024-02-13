@@ -1,0 +1,42 @@
+﻿@page
+@model MoshtariYarUI.Areas.Customer.Pages.AddTicketModel
+@{
+}
+
+<form method="post">
+    <input asp-for="Ticket.Id" type="hidden" />
+    <div class="mb-3">
+        <label asp-for="Ticket.Title" class="form-label"></label>
+        <input type="text" class="form-control" asp-for="Ticket.Title">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Ticket.Description" class="form-label"></label>
+        <textarea class="form-control" asp-for="Ticket.Description" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Ticket.Priority" class="form-label"></label>
+        <select asp-for="Ticket.Priority" class="form-control">
+            <option selected> انتخاب کنید</option>
+            <option value="@Entities.PriorityEnum.High">فوری</option>
+            <option value="@Entities.PriorityEnum.Normal">معمولی</option>
+            <option value="@Entities.PriorityEnum.Low">کم اهمیت</option>
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Ticket.DepartmentName" class="form-label"></label>
+        <input class="form-control" asp-for="Ticket.DepartmentName"></input>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Ticket.SubmittedBy" class="form-label"></label>
+        <input class="form-control" asp-for="Ticket.SubmittedBy"></input>
+    </div>
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">ارسال درخواست</button>
+    </div>
+</form>

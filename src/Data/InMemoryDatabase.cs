@@ -12,6 +12,23 @@ namespace Data
             return _tickets.FirstOrDefault(x => x.Id == id);
         }
 
+        public bool UpdateTicket(Ticket ticket)
+        {
+            var pintedTicket = _tickets.FirstOrDefault(t => t.Id == ticket.Id);
+            if (pintedTicket == null)
+                return false;
+            else
+            {
+                pintedTicket.Title = ticket.Title;
+                pintedTicket.Description = ticket.Description;
+                pintedTicket.DepartmentName = ticket.DepartmentName;
+                pintedTicket.TicketResponse = ticket.TicketResponse;
+                pintedTicket.SubmittedAt = ticket.SubmittedAt;
+                pintedTicket.SubmittedBy = ticket.SubmittedBy;
+            }
+
+           
+        }
         public List<Ticket> GetTickets()
         {
             return _tickets;
