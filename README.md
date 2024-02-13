@@ -1,6 +1,6 @@
 # Maktab-104-MoshtariYar
 
-## Moshtari-yar Roadmap
+## Roadmap
 * Database
   - Data-Model Design
   - Implement SQL Server Data-Access Layer
