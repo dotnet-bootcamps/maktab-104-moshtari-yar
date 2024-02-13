@@ -1,0 +1,44 @@
+﻿@page
+@model MoshtariYarUI.Areas.Customer.Pages.EditPageModel
+@{
+}
+
+<form method="post">
+    <div>
+        <input type="hidden" asp-for="currentTicket.Id" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="currentTicket.Title" class="form-label"></label>
+        <input type="text" class="form-control" asp-for="currentTicket.Title">
+    </div>
+    <div class="mb-3">
+        <label asp-for="currentTicket.Description" class="form-label"></label>
+        <textarea class="form-control" asp-for="currentTicket.Description" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="currentTicket.Priority" class="form-label"></label>
+        <select asp-for="currentTicket.Priority" class="form-control">
+            <option selected> انتخاب کنید</option>
+            <option value="@Entities.PriorityEnum.High">فوری</option>
+            <option value="@Entities.PriorityEnum.Normal">معمولی</option>
+            <option value="@Entities.PriorityEnum.Low">کم اهمیت</option>
+
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="currentTicket.DepartmentName" class="form-label"></label>
+        <input class="form-control" asp-for="currentTicket.DepartmentName"></input>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="currentTicket.SubmittedBy" class="form-label"></label>
+        <input class="form-control" asp-for="currentTicket.SubmittedBy"></input>
+    </div>
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">ویرایش</button>
+    </div>
+</form>

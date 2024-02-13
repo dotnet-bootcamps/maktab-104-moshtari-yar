@@ -14,7 +14,7 @@
         <td>ارجاع به</td>
         <td>ارسال کننده</td>
         <td>زمان ارسال</td>
-
+        <td>عملیات</td>
     </tr>
     @foreach (var ticket in Model.Tickets)
     {
@@ -28,6 +28,7 @@
             <td>@ticket.SubmittedAt</td>
             <td>
                 <a class="btn btn-sm btn-info" asp-page="/TicketDetails" asp-route-Id="@ticket.Id">مشاهده</a>
+                <a class="btn btn-sm btn-warning" asp-page="/EditPage" asp-route-Id="@ticket.Id">ویرایش</a>
             </td>
         </tr>
     }
