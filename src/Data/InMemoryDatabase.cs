@@ -6,6 +6,7 @@ namespace Data
     public class InMemoryDatabase : IDatabase
     {
         private static List<Ticket> _tickets = new List<Ticket>();
+        private static List<TicketResponse> _ticketResponses = new List<TicketResponse>();
 
         public Ticket GetTicketById(int id)
         {
@@ -21,7 +22,6 @@ namespace Data
             pintedTicket.Title = ticket.Title;
             pintedTicket.Description = ticket.Description;
             pintedTicket.DepartmentName = ticket.DepartmentName;
-            pintedTicket.TicketResponse = ticket.TicketResponse;
             pintedTicket.Priority = ticket.Priority;
             pintedTicket.SubmittedAt = ticket.SubmittedAt;
             pintedTicket.SubmittedBy = ticket.SubmittedBy;
@@ -30,6 +30,8 @@ namespace Data
 
         public List<Ticket> GetTickets()
         {
+            //var tickets = _tickets.Where(x=>x.IsActive).ToList();
+            //return tickets;
             return _tickets;
         }
 
@@ -43,12 +45,17 @@ namespace Data
         }
 
 
-        public bool AddTicketResponse(int ticketId, string ticketResponse)
+        public bool AddTicketResponse(int ticketId, string ticketResponse,int SubmittedBy)
         {
             var targetTicket = GetTicketById(ticketId);
             if (targetTicket != null)
             {
-                targetTicket.TicketResponse = ticketResponse;
+                TicketResponse NewResponse = new TicketResponse()
+                {
+                    Id = GenerateResponseId(ticketId),
+                    Text = ticketResponse
+                };
+                targetTicket.ResponseList.Add(NewResponse);
                 return true;
             }
 
@@ -63,6 +70,7 @@ namespace Data
 
             if (targetTicket != null)
             {
+                targetTicket.IsActive = false;
                 _tickets.Remove(targetTicket);
                 return true;
             }
@@ -71,6 +79,17 @@ namespace Data
             {
                 return false;
             }
+        }
+
+        public int GenerateResponseId(int TicketId)
+        {
+            var targetTicket = _tickets.First(x => x.Id == TicketId);
+            if (targetTicket.ResponseList.Any())
+            {
+                return targetTicket.ResponseList.Max(x => x.Id) + 1;
+            }
+
+            return 1;
         }
     }
 }

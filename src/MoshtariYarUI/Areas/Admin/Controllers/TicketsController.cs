@@ -1,6 +1,7 @@
 ﻿using Data;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Build.Experimental.ProjectCache;
 
 namespace MoshtariYarUI.Areas.Admin.Controllers
 {
@@ -13,6 +14,21 @@ namespace MoshtariYarUI.Areas.Admin.Controllers
             var model = _database.GetTickets();
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult TicketDetails(int id)
+        {
+            var targetTicket = _database.GetTicketById(id);
+            return View(targetTicket);
+        }
+
+        [HttpGet]
+        public IActionResult TicketResponses(int id)
+        {
+            var targetTicket = _database.GetTicketById(id);
+            return View(targetTicket.ResponseList);
+        }
+
 
         [HttpGet]
         public IActionResult DeleteTicket(int id)
@@ -34,14 +50,20 @@ namespace MoshtariYarUI.Areas.Admin.Controllers
         public IActionResult TicketResponse(int id)
         {
             var targetTikcet = _database.GetTicketById(id);
-            return View(targetTikcet);
+            var ticketModel = new TicketDTO(/*targetTikcet.Id, targetTikcet.Title, targetTikcet.Description, targetTikcet.SubmittedBy*/);
+            ticketModel.Id = targetTikcet.Id;
+            ticketModel.Title = targetTikcet.Title;
+            ticketModel.Description = targetTikcet.Description;
+            ticketModel.SubmittedBy = targetTikcet.SubmittedBy;
+
+            return View(ticketModel);
         }
 
 
         [HttpPost]
-        public IActionResult TicketResponse(Ticket ticket)
+        public IActionResult TicketResponse(TicketDTO ticketModel)
         {
-            var CheckresponseIsAdded = _database.AddTicketResponse(ticket.Id, ticket.TicketResponse);
+            var CheckresponseIsAdded = _database.AddTicketResponse(ticketModel.Id, ticketModel.TicketResponse, ticketModel.SubmittedBy);
 
             if (CheckresponseIsAdded)
             {

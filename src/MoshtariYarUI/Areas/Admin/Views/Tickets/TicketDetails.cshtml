@@ -1,0 +1,31 @@
+﻿@model Ticket
+
+<div class="my-5  container">
+    <h2>جزئیات برای تیکت شماره @Model.Id</h2>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">نام</th>
+                <th scope="col">نام شعبه</th>
+                <th scope="col">توضیحات</th>
+                <th scope="col">تاریخ ثبت</th>
+                <th scope="col">نوشته شده توسط:</th>
+                <th scope="col">اولویت</th>
+                <th scope="col">عملیات</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">@Model.Id</th>
+                <td>@Model.Title</td>
+                <td>@Model.DepartmentName</td>
+                <td>@Model.Description</td>
+                <td>@Model.SubmittedAt</td>
+                <td>@Model.SubmittedBy</td>
+                <td>@Model.Priority</td>
+                <td><a class="btn btn-sm btn-primary" asp-action="TicketResponses" asp-route-id="@Model.Id">پاسخ ها</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

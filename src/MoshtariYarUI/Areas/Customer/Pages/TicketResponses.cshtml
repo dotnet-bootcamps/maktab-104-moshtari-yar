@@ -1,0 +1,27 @@
+﻿@page
+@model MoshtariYarUI.Areas.Customer.Pages.Index1Model
+@{
+}
+<h2>لیست پاسخ ها</h2>
+
+<table class="table table-responsive table-hover table-striped">
+    <thead>
+        <tr>
+            <th scope="col">آیدی تیکت</th>
+            <th scope="col">شناسه ارسال کننده</th>
+            <th scope="col">ثبت شده در تاریخ</th>
+            <th scope="col">متن پیام</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        @foreach (var response in Model.CurrentTicketResponses)
+        {
+            <tr>
+                <td scope="row">@response.Id</td>
+                <td scope="row">@response.SubmittedBy</td>
+                <td scope="row">@response.ResponseDate</td>
+                <td scope="row">@response.Text</td>
+            </tr>
+        }
+    </tbody>
+</table>
