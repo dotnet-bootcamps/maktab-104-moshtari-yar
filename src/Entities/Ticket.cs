@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
@@ -42,8 +43,13 @@ namespace Entities
         [Display(Name = "شناسه ارسال کننده")]
         public int SubmittedBy { get; set; }
 
-        [Display(Name = "پاسخ :")]
-        public string? TicketResponse { get; set; }
+        //[Display(Name = "پاسخ :")]
+        //public string? TicketResponse { get; set; }
+
+        [DisplayName("پاسخ ها")]
+        public List<TicketResponse>? ResponseList { get; set; } = new List<TicketResponse>();
+
+        public bool IsActive { get; set; } = true;
     }
 
     //public class Department

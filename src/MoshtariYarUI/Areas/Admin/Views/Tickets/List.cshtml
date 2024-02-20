@@ -36,7 +36,7 @@
             <td>@ticket.SubmittedBy</td>
             <td>@ticket.SubmittedAt</td>
             <td>
-                <a class="btn btn-sm btn-info" asp-area="Customer" asp-page="/TicketDetails" asp-route-Id="@ticket.Id">مشاهده</a>
+                <a class="btn btn-sm btn-info" asp-controller="Tickets" asp-action="TicketDetails" asp-route-Id="@ticket.Id">مشاهده</a>
                 <a class="btn btn-sm btn-primary" asp-controller="Tickets" asp-action="TicketResponse" asp-route-id="@ticket.Id">ثبت پاسخ</a>
                 <a class="btn btn-sm btn-danger" asp-controller="Tickets" asp-action="DeleteTicket" asp-route-Id="@ticket.Id">حذف</a>
             </td>
