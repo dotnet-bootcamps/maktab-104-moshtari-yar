@@ -6,7 +6,7 @@ namespace AdminUI.Controllers
 {
     public class TicketsController : Controller
     {
-        private readonly InMemoryDatabase _database = new InMemoryDatabase();
+        private readonly MemoryRepository _database = new MemoryRepository();
 
         public IActionResult List()
         {

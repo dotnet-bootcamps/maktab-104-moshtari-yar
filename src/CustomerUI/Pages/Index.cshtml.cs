@@ -23,7 +23,7 @@ namespace CustomerUI.Pages
 
         public void OnGet()
         {
-            var database = new InMemoryDatabase();
+            var database = new MemoryRepository();
             Tickets = database.GetTickets();
         }
         

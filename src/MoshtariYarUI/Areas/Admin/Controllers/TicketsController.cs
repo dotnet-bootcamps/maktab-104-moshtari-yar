@@ -7,7 +7,7 @@ namespace MoshtariYarUI.Areas.Admin.Controllers
     [Area("Admin")]
     public class TicketsController : Controller
     {
-        private readonly InMemoryDatabase _database = new InMemoryDatabase();
+        private readonly EfRepository _database = new EfRepository();
         public IActionResult List()
         {
             var model = _database.GetTickets();

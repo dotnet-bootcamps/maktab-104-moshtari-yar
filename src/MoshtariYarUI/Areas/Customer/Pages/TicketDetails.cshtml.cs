@@ -8,7 +8,7 @@ namespace MoshtariYarUI.Areas.Customer.Pages
     [Area("Customer")]
     public class TicketDetailsModel : PageModel
     {
-        InMemoryDatabase dataBase = new InMemoryDatabase();
+        EfRepository dataBase = new EfRepository();
 
         #region Model
         [BindProperty]

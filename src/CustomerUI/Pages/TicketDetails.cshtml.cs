@@ -7,7 +7,7 @@ namespace CustomerUI.Pages
 {
     public class TicketDetailsModel : PageModel
     {
-        InMemoryDatabase dataBase = new InMemoryDatabase();
+        MemoryRepository dataBase = new MemoryRepository();
 
         #region Model
         [BindProperty]

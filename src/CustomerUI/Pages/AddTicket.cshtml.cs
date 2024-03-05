@@ -28,7 +28,7 @@ namespace CustomerUI.Pages
             //if (!ModelState.IsValid)
             //    return Page();
 
-            var database = new InMemoryDatabase();
+            var database = new MemoryRepository();
             database.AddTicket(Ticket);
             return RedirectToPage("Index");
         }

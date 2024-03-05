@@ -23,7 +23,7 @@ namespace MoshtariYarUI.Areas.Customer.Pages
 
         public void OnGet()
         {
-            var database = new InMemoryDatabase();
+            var database = new EfRepository();
             Tickets = database.GetTickets();
         }
         

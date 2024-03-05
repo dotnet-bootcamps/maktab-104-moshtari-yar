@@ -26,7 +26,7 @@ namespace Entities
 
         //public int DepartmentId { get; set; }
         [Display(Name = "ارجاع به واحد")]
-        public string DepartmentName { get; set; }
+        public string? DepartmentName { get; set; }
 
         /// <summary>
         /// زمان ثبت تیکت
@@ -40,7 +40,7 @@ namespace Entities
         /// </summary>
         ///
         [Display(Name = "شناسه ارسال کننده")]
-        public int SubmittedBy { get; set; }
+        public int? SubmittedBy { get; set; }
 
         [Display(Name = "پاسخ :")]
         public string? TicketResponse { get; set; }

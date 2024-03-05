@@ -3,7 +3,7 @@ using Entities;
 
 namespace Data
 {
-    public class InMemoryDatabase : IDatabase
+    public class MemoryRepository : IRepository
     {
         private static List<Ticket> _tickets = new List<Ticket>();
 

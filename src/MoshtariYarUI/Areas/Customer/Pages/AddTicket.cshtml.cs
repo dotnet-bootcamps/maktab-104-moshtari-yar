@@ -29,7 +29,7 @@ namespace MoshtariYarUI.Areas.Customer.Pages
             //if (!ModelState.IsValid)
             //    return Page();
 
-            var database = new InMemoryDatabase();
+            var database = new EfRepository();
             database.AddTicket(Ticket);
             return RedirectToPage("Index");
         }

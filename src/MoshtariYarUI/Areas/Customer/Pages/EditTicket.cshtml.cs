@@ -8,10 +8,10 @@ namespace MoshtariYarUI.Areas.Customer.Pages
     [Area("Customer")]
     public class EditTicketModel : PageModel
     {
-        InMemoryDatabase _db;
+        EfRepository _db;
         public EditTicketModel()
         {
-            _db = new InMemoryDatabase();
+            _db = new EfRepository();
         }
 
 
