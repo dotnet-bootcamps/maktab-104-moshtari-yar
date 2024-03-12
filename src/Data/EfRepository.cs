@@ -12,9 +12,9 @@ namespace Data
     public class EfRepository : IRepository
     {
         private AppDbContext _db;
-        public EfRepository()
+        public EfRepository(AppDbContext db)
         {
-            _db = new AppDbContext();
+            _db = db;
         }
 
         public List<Ticket> GetTickets()

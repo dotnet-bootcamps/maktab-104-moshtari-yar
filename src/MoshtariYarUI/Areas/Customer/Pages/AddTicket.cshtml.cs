@@ -1,4 +1,6 @@
+using Contracts;
 using Data;
+using Databases;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,9 +10,11 @@ namespace MoshtariYarUI.Areas.Customer.Pages
     [Area("Customer")]
     public class AddTicketModel : PageModel
     {
-        public AddTicketModel()
+        private readonly IRepository _repository;
+
+        public AddTicketModel(IRepository repository)
         {
-            
+            _repository = repository;
         }
 
         #region Model
@@ -29,8 +33,7 @@ namespace MoshtariYarUI.Areas.Customer.Pages
             //if (!ModelState.IsValid)
             //    return Page();
 
-            var database = new EfRepository();
-            database.AddTicket(Ticket);
+            _repository.AddTicket(Ticket);
             return RedirectToPage("Index");
         }
     }

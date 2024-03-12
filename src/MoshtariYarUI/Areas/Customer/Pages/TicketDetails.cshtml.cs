@@ -1,4 +1,6 @@
+using Contracts;
 using Data;
+using Databases;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,7 +10,13 @@ namespace MoshtariYarUI.Areas.Customer.Pages
     [Area("Customer")]
     public class TicketDetailsModel : PageModel
     {
-        EfRepository dataBase = new EfRepository();
+        private readonly IRepository _repository;
+
+        public TicketDetailsModel(IRepository repository)
+        {
+            _repository = repository;
+        }
+
 
         #region Model
         [BindProperty]
@@ -18,7 +26,7 @@ namespace MoshtariYarUI.Areas.Customer.Pages
 
         public IActionResult OnGet(int id)
         {
-            var tickets = dataBase.GetTickets();
+            var tickets = _repository.GetTickets();
             CurrentTicket = tickets.FirstOrDefault(t => t.Id == id);
 
             if (CurrentTicket == null)

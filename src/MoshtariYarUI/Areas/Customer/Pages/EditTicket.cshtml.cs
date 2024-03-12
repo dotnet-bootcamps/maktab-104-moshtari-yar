@@ -1,4 +1,6 @@
+using Contracts;
 using Data;
+using Databases;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,10 +10,10 @@ namespace MoshtariYarUI.Areas.Customer.Pages
     [Area("Customer")]
     public class EditTicketModel : PageModel
     {
-        EfRepository _db;
-        public EditTicketModel()
+        private readonly IRepository _repository;
+        public EditTicketModel(IRepository repository)
         {
-            _db = new EfRepository();
+            _repository = repository;
         }
 
 
@@ -21,13 +23,13 @@ namespace MoshtariYarUI.Areas.Customer.Pages
 
         public void OnGet(int id)
         {
-            Ticket = _db.GetTicketById(id);
+            Ticket = _repository.GetTicketById(id);
         }
 
         [HttpPost]
         public IActionResult OnPost(Ticket ticket)
         {
-            _db.UpdateTicket(ticket);
+            _repository.UpdateTicket(ticket);
             return RedirectToPage("Index");
         }
     }

@@ -1,7 +1,14 @@
+using Contracts;
+using Data;
+using Databases;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IRepository,EfRepository>();
+builder.Services.AddDbContext<AppDbContext>(o=>o.UseSqlServer("server=(LocalDb)\\MSSQLLocalDB; Initial Catalog=MaktabSharif-104-MoshtariYar; Integrated Security=True;"));
 
 
 var app = builder.Build();

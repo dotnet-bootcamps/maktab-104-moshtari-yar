@@ -1,4 +1,6 @@
-﻿using Data;
+﻿using Contracts;
+using Data;
+using Databases;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,10 +12,12 @@ namespace MoshtariYarUI.Areas.Customer.Pages
     {
 
         private readonly ILogger<IndexModel> _logger;
-        public IndexModel(ILogger<IndexModel> logger)
+        private readonly IRepository _repository;
+
+        public IndexModel(ILogger<IndexModel> logger, IRepository repository)
         {
             _logger = logger;
-
+            _repository = repository;
         }
 
         #region Model
@@ -23,8 +27,7 @@ namespace MoshtariYarUI.Areas.Customer.Pages
 
         public void OnGet()
         {
-            var database = new EfRepository();
-            Tickets = database.GetTickets();
+            Tickets = _repository.GetTickets();
         }
         
     }
