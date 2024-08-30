@@ -1,6 +1,6 @@
 
 # .NET Bootcamp (Maktab-104) MoshtariYar project
-this repository was created for .Net Bootcamp (maktab-sharif 71) and ```is no longer maintained.```
+this repository was created for .Net Bootcamp (maktab-sharif 104) and ```is no longer maintained.```
 
 
 ## Roadmap
